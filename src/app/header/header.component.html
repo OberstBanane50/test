@@ -1,0 +1,196 @@
+
+<!--
+<nav>
+    <img src="assets/img/ukraine_flag.png">
+    <ul>
+        <li><h2><a routerLink="/catalog" routerLinkActive="active">Angebotskatalog</a></h2></li>
+        <li><h2><a routerLink="/orders" routerLinkActive="active">Bestellungen</a></h2></li>
+    </ul>
+
+    <table *ngIf="!loggedIn || loggedIn && account.length == 0">
+        <tr>
+            <td>
+                E-Mail-Adresse:
+            </td>
+            <td>
+                <input [(ngModel)]="emailIn" type="text"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Passwort:
+            </td>
+            <td>
+                <input [(ngModel)]="passwordIn" type="password"><br>
+            </td>
+        </tr>
+    </table>
+
+    <p *ngIf="loggedIn && account.length > 0">
+        Angemeldet als {{ account[0].Name }}.
+    </p>
+
+    <button (click)="login(emailIn, passwordIn)" *ngIf="!loggedIn || loggedIn && account.length == 0">Einloggen</button>
+    <button *ngIf="!loggedIn || loggedIn && account.length == 0"><a routerLink="/register" routerLinkActive="active">Registrieren</a></button>
+    <button (click)="logout()" *ngIf="loggedIn && account.length > 0">Ausloggen</button>
+
+    <p *ngIf="invalidInput" class="red">
+        Bitte alle Felder ausfüllen!
+    </p>
+
+    <p *ngIf="loggedIn && account.length == 0" class="red">
+        Ungültige Anmeldedaten!
+    </p>
+</nav>
+-->
+
+<div class="login">
+
+        <div  id="email"><img src="../../assets/img/user-solid.svg"><input [(ngModel)]="emailIn" type="text" placeholder="Email"></div> 
+        <div  id="passwort"><img src="../../assets/img/lock-solid.svg"><input [(ngModel)]="passwordIn" type="password" placeholder="Passwort"></div>
+        <button (click)="login(emailIn, passwordIn)" *ngIf="!loggedIn || loggedIn && account.length == 0">Einloggen</button>
+        <button (click)="logout()" *ngIf="loggedIn && account.length > 0">Ausloggen</button>
+
+</div>
+
+<div class="logo">
+    <img src="assets/img/ukraine_flag.png">
+</div>
+
+<div class="bestellung">
+    <a routerLink="/orders" routerLinkActive="active">Bestellungen</a>
+</div>
+
+<div class="registrierung">
+    <a routerLink="/orders" routerLinkActive="active">Registrieren</a>
+    <!-- Hier noch die fehlende Verknüpfung machen zu der Registrierungsfunktion (ursprünglich als Button vorgesehen gewesen) -->
+    <!-- Danach das Registrierungsformular hübsch machen 'app-register' -->
+</div>
+
+
+<style>
+
+    /* ------------------------- OBERE ZEILE ------------------------- */
+
+    .login {
+        display: grid; 
+        grid-template-rows: auto;
+        grid-template-columns: 55% 1fr 0.91fr 1fr; 
+        grid-column: 1/6; 
+        grid-row: 1/2;
+        position: relative; 
+        background: #222;
+    }
+
+    .login #email {
+        grid-column: 2/3; 
+        grid-row: 1/2;
+        position: relative;
+        top: 8px;
+    }
+
+    .login #passwort {
+        grid-column: 3/4; 
+        grid-row: 1/2;
+        position: relative;
+        top: 8px;
+    }
+
+    .login button {
+        grid-column: 4/5; 
+        grid-row: 1/2;
+        position: relative;
+        top: 7px;
+        background-color: darkcyan;
+        border: 1px solid rgba(54, 54, 54, 0.6);
+        color: #111;
+        font-weight: 600;
+        position: relative;
+        outline: none;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: 20px;
+        width: 100px;
+        padding: 12px;
+    }
+
+    .login button:hover {
+        color: #eee;
+    }
+
+    img {
+        height: 18px;
+        position: absolute;
+        left: -30px;
+        top: 3px;
+    }
+
+    input {
+        border: 3px solid #333;
+        border-radius: 6px;
+        background: #333;
+    }
+
+    input:focus {
+        outline: none;
+        border: 3px solid #444;
+        background: #444;
+    }
+
+
+
+
+
+    /* ------------------------- UNTERE ZEILE ------------------------- */
+  
+    .logo {
+        grid-column: 1/2; 
+        grid-row: 2/3;
+        position: relative; 
+    }
+
+    .logo img {
+        position: absolute;
+        width: 60%;
+        height: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    .bestellung {
+        grid-column: 3/4; 
+        grid-row: 2/3; 
+        position: relative; 
+    }
+
+    .registrierung {
+        grid-column: 4/5; 
+        grid-row: 2/3;
+        position: relative; 
+    }
+
+    .bestellung a, .registrierung a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    a {
+        color: #222;
+        text-decoration: inherit;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+
+    a:hover {
+        color: #666;
+    }
+
+
+</style>

@@ -1,0 +1,40 @@
+<div class="content">
+    <h1>Registrierung</h1>
+
+    <table>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input [(ngModel)]="nameIn" type="text"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E-Mail-Adresse:
+            </td>
+            <td>
+                <input [(ngModel)]="emailIn" type="text"><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Passwort:
+            </td>
+            <td>
+                <input [(ngModel)]="passwordIn" type="password"><br>
+            </td>
+        </tr>
+    </table>
+
+    <button (click)="register(emailIn, passwordIn, nameIn)">Jetzt registrieren</button>
+
+    <p *ngIf="invalidInput" class="red">
+        Bitte alle Felder ausfüllen!
+    </p>
+
+    <p *ngIf="result" class="green">
+        Registrierung erfolgreich!
+    </p>
+</div>

@@ -1,0 +1,25 @@
+<div class="cardcontent">
+    <img src="{{ img }}">
+    <div class="cardtext">
+        <h3>{{ title }}</h3>
+        <p>Datum/Uhrzeit: {{ date }} {{ time }}</p>
+        <p>Ort: {{ location }}</p>
+        <p>Preis: {{ price }} €</p>
+        <p>Gebuchte Plätze: {{ amount }}</p>
+
+        <div *ngIf="showDetails">
+            <b>Beschreibung:</b> 
+            <p>
+                {{ description }}
+            </p>
+        </div>
+
+        <button *ngIf="!showDetails" (click)="toggleDetails()">Details</button>
+        <button *ngIf="showDetails" (click)="toggleDetails()">Einklappen</button>
+        <button (click)="cancelOrder()">Stornieren</button>
+
+        <p *ngIf="result" class="green">
+            Buchung storniert!
+        </p>
+    </div>
+</div>

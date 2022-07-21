@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FreizeitUkraine</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+
+	
+  window.addEventListener("load", function(){
+
+
+    document.getElementById("toggle1").addEventListener("click", function(){
+      
+      var list = document.getElementById("filterlist_1");
+      list.classList.toggle("mystyle");
+    }, false);
+
+
+
+    var list = document.querySelector('eventlist');
+    var eventAmount = document.getElementById("eventlist").children.length;
+    
+    for(var i = 1; i <= eventAmount; i++) {
+      if(!(i % 2 == 0)) {
+        console.log(document.getElementsByClassName("event")[i - 1]);
+        document.getElementsByClassName("event")[i - 1].style.marginRight = "50px"; 
+      }
+    }
+    
+  
+  })
+
+
+
+
+</script>
+
+
+</html>

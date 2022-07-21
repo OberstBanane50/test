@@ -1,0 +1,221 @@
+
+    
+
+<h1>Verfügbare Angebote</h1>
+
+<div class="filter"> 
+    
+    <div class="filteroptions">
+        <div class="toggle1" id="toggle1"><h4>Filtern nach ..</h4></div> 
+        <div class="toggle2" onclick="alert('ist inaktiv')"><h4>Sortieren nach ..</h4></div>
+    </div>
+
+
+    <div class="filterlist" id="filterlist_1">
+        <div class="filterbox_1">
+            <p>Alter</p>
+            <div class="radio">
+                <input [(ngModel)]="age" id="radio-1" name="age" type="radio" value="0">
+                <label for="radio-1" class="radio-label">nicht festgelegt</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="age" id="radio-2" name="age" type="radio" value="1">
+                <label for="radio-2" class="radio-label">0-6</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="age" id="radio-3" name="age" type="radio" value="2">
+                <label for="radio-3" class="radio-label">6-12</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="age" id="radio-4" name="age" type="radio" value="3">
+                <label for="radio-4" class="radio-label">12-18</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="age" id="radio-5" name="age" type="radio" value="4">
+                <label for="radio-5" class="radio-label">>18</label>
+            </div>
+        </div>
+
+        <div class="filterbox_2">
+            <p>Preis</p>
+            <div class="radio">
+                <input [(ngModel)]="price" id="radio-6" name="preis" type="radio" value="1">
+                <label for="radio-6" class="radio-label">kostenlos</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="price" id="radio-7" name="preis" type="radio" value="21">
+                <label for="radio-7" class="radio-label">unter 20€</label>
+            </div>
+    
+            <div class="radio">
+                <input [(ngModel)]="price" id="radio-8" name="preis" type="radio" value="1000">
+                <label for="radio-8" class="radio-label">über 20€</label>
+            </div>
+        </div>
+        
+        <div class="filterbutton_1"><button (click)="filterEvents(age, price)">Filter setzen</button></div>
+        <div class="filterbutton_2"><button (click)="resetEventsFilter()">Zurücksetzen</button></div>
+    </div>
+
+</div>   
+
+
+<div class="cardlist">
+    <app-eventcard *ngFor="let i of events" [eventID]="i.EventID" [title]="i.Bezeichnung" [date]="i.Datum" [time]="i.Uhrzeit" [location]="i.Ort" [price]="i.Preis" [available]="i.Plaetze" [img]="i.Bild" [description]="i.Beschreibung"></app-eventcard>
+</div>
+
+
+
+<style>
+
+    .cardlist {
+        margin: 110px 0px;
+    }
+    
+    #eventlist {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    li {
+      float: left;
+      margin-bottom: 50px;
+    }
+    
+    li app-eventcard {
+      display: inline-block;
+    }
+    
+    
+    
+    
+    
+        .filter {
+            position: relative;
+            top: 35px;
+            box-shadow: 0px 17px 20px -16px rgba(73,73,73,0.37);
+        }
+    
+        .filteroptions {
+            display: grid; 
+            grid-template-rows: 40px;
+            grid-template-columns: auto auto 1fr; 
+            grid-gap: 0px 10px;
+        }
+    
+    
+    
+    
+    
+        h1, h4 {
+            font-family: sans-serif;
+        }
+    
+        h4 {
+            text-align-last: center;
+            left: 50%;
+            top: 50%;
+            width: 180px;
+            transform: translate(0%, -51%);
+            font-weight: 100;
+            color: #eee;
+    
+        }
+    
+        .toggle1 {
+            position: relative;
+            grid-column: 1/2; 
+            grid-row: 1/2; 
+            background: #333;
+        }
+    
+        .toggle2 {
+            position: relative;
+            grid-column: 2/3; 
+            grid-row: 1/2;
+            background-color: #333;
+        }
+    
+        .toggle1:hover, .toggle2:hover {
+            background-color: #666;
+            cursor: pointer;
+        }
+    
+    
+        .filterlist {
+            display: grid; 
+            grid-template-rows: auto 50px;
+            grid-template-columns: 300px 300px 1fr; 
+            overflow: hidden;
+            transition: all 0.5s ease-out;
+            height: 0px;
+            padding: 18px 0px;
+            flex: 0;
+        }
+    
+        .filterpart_1 {
+            grid-column: 1/2; 
+            grid-row: 1/2;
+        }
+    
+        .filterpart_2 {
+            grid-column: 2/3; 
+            grid-row: 1/2;
+        }
+    
+        .filterbox_1 p, .filterbox_2 p {
+            font-weight: bold;
+        }
+    
+        .filterbutton_1 {
+            grid-column: 1/2; 
+            grid-row: 2/3;
+        }
+    
+        .filterbutton_2 {
+            grid-column: 2/3; 
+            grid-row: 2/3;
+        }
+    
+        .mystyle {
+            height: 250px;
+        }
+    
+    
+    
+    
+        .filterbutton_1 button, .filterbutton_2 button {
+            position: relative;
+            top: 7px;
+            background-color: darkcyan;
+            border: none;
+            color: #111;
+            font-weight: 600;
+            position: relative;
+            outline: none;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            height: 20px;
+            width: 150px;
+            padding: 12px;
+        }
+    
+        .filterbutton_1 button:hover, .filterbutton_2 button:hover {
+            color: #eee;
+        }
+        
+        
+        
+    </style>
+    
+    

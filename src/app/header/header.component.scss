@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    background-color: rgb(58, 117, 196);
+    height: 70px;
+    ul {
+        display: flex;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        li {
+            a {
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                background-color: rgb(58, 117, 196);
+                padding: 23px;
+            }
+            a:hover {
+                background-color: rgb(249, 221, 22);
+            }
+        }
+    }
+    img {
+        height: 70px;
+    }
+    button, table {
+        margin: 10px;
+    }
+}
