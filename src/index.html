@@ -23,15 +23,23 @@
     }, false);
 
 
+    document.getElementById("marg").addEventListener("click", function(){
+      doMargin();
+    });
 
+    doMargin();
+
+    function doMargin() {
+
+    
     var list = document.querySelector('eventlist');
     var eventAmount = document.getElementById("eventlist").children.length;
     
     for(var i = 1; i <= eventAmount; i++) {
       if(!(i % 2 == 0)) {
-        console.log(document.getElementsByClassName("event")[i - 1]);
         document.getElementsByClassName("event")[i - 1].style.marginRight = "50px"; 
       }
+    }
     }
     
   

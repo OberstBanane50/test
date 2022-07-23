@@ -46,7 +46,7 @@
 
 <div class="login">
 
-        <div  id="email"><img src="../../assets/img/user-solid.svg"><input [(ngModel)]="emailIn" type="text" placeholder="Email"></div> 
+        <div  id="email"><img src="../../assets/img/user-solid.svg"><input [(ngModel)]="emailIn" type="text" placeholder="E-mail"></div> 
         <div  id="passwort"><img src="../../assets/img/lock-solid.svg"><input [(ngModel)]="passwordIn" type="password" placeholder="Passwort"></div>
         <button (click)="login(emailIn, passwordIn)" *ngIf="!loggedIn || loggedIn && account.length == 0">Einloggen</button>
         <button (click)="logout()" *ngIf="loggedIn && account.length > 0">Ausloggen</button>
@@ -54,7 +54,7 @@
 </div>
 
 <div class="logo">
-    <img src="assets/img/ukraine_flag.png">
+    <a id="marg" routerLink="/catalog" routerLinkActive="active"><img src="assets/img/ukraine_flag.png"></a>
 </div>
 
 <div class="bestellung">
@@ -62,7 +62,7 @@
 </div>
 
 <div class="registrierung">
-    <a routerLink="/orders" routerLinkActive="active">Registrieren</a>
+    <a routerLink="/register" routerLinkActive="active">Registrieren</a>
     <!-- Hier noch die fehlende Verknüpfung machen zu der Registrierungsfunktion (ursprünglich als Button vorgesehen gewesen) -->
     <!-- Danach das Registrierungsformular hübsch machen 'app-register' -->
 </div>
@@ -129,15 +129,16 @@
     }
 
     input {
-        border: 3px solid #333;
+        border: 3px solid #444;
         border-radius: 6px;
-        background: #333;
+        background: #444;
     }
 
     input:focus {
         outline: none;
-        border: 3px solid #444;
-        background: #444;
+        border: 3px solid #555;
+        background: #555;
+        color: #eee;
     }
 
 

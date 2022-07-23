@@ -1,5 +1,45 @@
 <div class="cardcontent">
-    <img src="{{ img }}">
+
+    <div class="colorfilter"></div>
+
+    <div class="text">
+        <h2>{{ title }}</h2>
+        <p style="width: 250px;">{{ description }}</p> <!-- Text Attribut -->
+    </div>
+    
+
+    <div class="navigationsliste">
+       
+        <ul>
+            <li><a href="">Veranstalter</a></li>    <!-- den Link mit der URL des Veranstalters ersetzen -->
+            <li (click)="checkout()" style="position: relative;">
+                <a href="">Buchen</a>
+                <input [(ngModel)]="amountIn" type="number" min="1" max="6" id="counter" name="points" step="1" value="1">
+            </li>
+        </ul>
+        
+    </div>
+
+    <div class="capture_1">
+        <div class="capture-rectangle_1"><p>Verfügbarkeit: <b>{{ available }}</b></p></div>
+        <div class="capture-edge"></div>
+    </div>
+
+    
+    <div class="capture_2">
+        <div class="capture-rectangle_2"><p>Preis: <b>{{ price }} €</b></p></div>
+        <div class="capture-edge"></div>
+    </div>
+
+    <p class="controll" *ngIf="invalidAmount" style="position: absolute; top: -69px; color: red;">
+        Es sind nicht mehr ausreichend Plätze verfügbar. Bitte eine geringere Anzahl auswählen!
+    </p>
+
+    <p class="controll" *ngIf="result" style="position: absolute; top: -69px; color: green;">
+        Buchung erfolgreich!
+    </p>
+    
+    <!--
     <div class="cardtext">
         <h3>{{ title }}</h3>
         <p>Datum/Uhrzeit: {{ date }} {{ time }}</p>
@@ -24,10 +64,11 @@
             </p>
         </div>
 
-        <button *ngIf="!showDetails" (click)="toggleDetails()">Details</button>
-        <button *ngIf="showDetails" (click)="toggleDetails()">Einklappen</button>
+
         <button *ngIf="!showCheckout" (click)="toggleCheckout()">Buchen</button>
         <button *ngIf="showCheckout" (click)="checkout()">Jetzt buchen</button>
+        
+
         
         <p *ngIf="invalidAmount" class="red">
             Es sind nicht mehr ausreichend Plätze verfügbar. Bitte eine geringere Anzahl auswählen!
@@ -36,5 +77,143 @@
         <p *ngIf="result" class="green">
             Buchung erfolgreich!
         </p>
+       
     </div>
+    -->
 </div>
+
+
+<style>
+
+#counter {
+    width: 30px;
+    position: absolute;
+    left: 160px;
+    top: 22px;
+    border-radius: 5px;
+    background-color: #eee;
+    padding: 2px;
+    border: none;
+}
+
+.capture_1 {
+    position: absolute;
+    right: -20px;
+    top: 25px;
+}
+
+.capture_2 {
+    position: absolute;
+    right: -20px;
+    top: 65px;
+}
+
+
+.capture-rectangle_1, .capture-rectangle_2 {
+    position: relative;
+    width: 180px;
+    height: 25px;
+    background-color: #333;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+}
+
+.capture-rectangle_2 {
+    width: 150px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 12% 100%);
+}
+
+.capture-rectangle_1 p, .capture-rectangle_2 p {
+    position: absolute;
+    top: -11px;
+    left: 30px;
+    font-size: 11pt;
+    color: #eee;
+}
+
+
+.capture-edge {
+    position: absolute;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(100% 0, 0 0, 0 50%);
+    background-color: #222;
+    filter: brightness(80%);
+}
+
+.cardcontent {
+    position: relative;
+    height: 250px;
+    width: 450px;
+    box-shadow: 0px 17px 20px -16px rgb(73 73 73 / 37%);
+    background-image: url(../../assets/img/test.jpg);
+}
+
+.colorfilter {
+    background-color: #ff6163;      /* {color Attribut des Eventobjektes} */
+    filter: brightness(50%);
+    opacity: 0.8;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+.navigationsliste ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    bottom: -186px;
+}
+
+.navigationsliste ul li {
+  float: left;
+  width: 50%;
+}
+
+.navigationsliste ul li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0%);
+    padding: 23px 0px;
+    text-decoration: none;
+}
+
+li:nth-child(1) {
+    background-color: #333;
+}
+
+li:nth-child(1):hover {
+    filter: brightness(90%)
+}
+
+li:nth-child(2) {
+    background-color: #ff6163;      /* {color Attribut des Eventobjektes} */
+}
+
+li:nth-child(2):hover {
+    filter: brightness(90%)
+}
+
+
+.text {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    color: #eee;
+}
+
+h2 {
+    font-family: sans-serif;
+}
+
+.additional_margin {
+    margin-right: 30px;
+}
+
+</style>
